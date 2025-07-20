@@ -1,0 +1,29 @@
+# Dependencies
+node_modules/
+
+# Environment variables
+.env
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Directory for uploaded files
+uploads/
+
+# Google API credentials
+credentials.json
+
+# Generated videos
+public/videos/
+
+# OS specific files
+.DS_Store
+Thumbs.db

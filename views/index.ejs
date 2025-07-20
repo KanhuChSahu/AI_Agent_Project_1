@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sheets to Video AI Portal</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+      <a class="navbar-brand" href="/">Sheets to Video AI</a>
+    </div>
+  </nav>
+
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card shadow">
+          <div class="card-header bg-primary text-white">
+            <h4 class="mb-0">Upload Google Sheet</h4>
+          </div>
+          <div class="card-body">
+            <form id="sheetForm">
+              <div class="mb-3">
+                <label for="sheetUrl" class="form-label">Google Sheet URL</label>
+                <input type="text" class="form-control" id="sheetUrl" name="sheetUrl" 
+                       placeholder="https://docs.google.com/spreadsheets/d/..." required>
+                <div class="form-text">Enter the URL of your Google Sheet containing text for video generation</div>
+              </div>
+              <button type="submit" class="btn btn-primary">Extract Text</button>
+            </form>
+          </div>
+        </div>
+
+        <div id="sheetData" class="card shadow mt-4 d-none">
+          <div class="card-header bg-success text-white">
+            <h4 class="mb-0">Text Content from Sheet</h4>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th width="50">Select</th>
+                    <th width="50">Row</th>
+                    <th>Text Content</th>
+                  </tr>
+                </thead>
+                <tbody id="sheetContent">
+                  <!-- Sheet data will be populated here -->
+                </tbody>
+              </table>
+            </div>
+            <button id="generateBtn" class="btn btn-success mt-3">Generate Videos</button>
+          </div>
+        </div>
+
+        <div id="videoResults" class="card shadow mt-4 d-none">
+          <div class="card-header bg-info text-white">
+            <h4 class="mb-0">Generated Videos</h4>
+          </div>
+          <div class="card-body">
+            <div id="videoContainer" class="row">
+              <!-- Videos will be populated here -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Loading Spinner -->
+  <div id="loadingOverlay" class="d-none">
+    <div class="spinner-container">
+      <div class="spinner-border text-light" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <p class="text-light mt-3" id="loadingText">Processing...</p>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JS -->
+  <script src="/js/main.js"></script>
+</body>
+</html>
